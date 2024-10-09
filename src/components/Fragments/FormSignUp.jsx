@@ -1,5 +1,5 @@
 import Button from "../Elements/Button";
-import LabeledInput from "../Elements/LabeledInput";
+import Labeledinput from "../Elements/LabeledInput";
 
 const FormSignUp = () => {
   return (
@@ -8,19 +8,19 @@ const FormSignUp = () => {
         Create an account
       </div>
       <form action="">
-        <LabeledInput
+        <Labeledinput
           label="Name"
           type="text"
           placeholder="John Doe"
           name="name"
         />
-        <LabeledInput
+        <Labeledinput
           label="Email Address"
           type="email"
           placeholder="hello@example.com"
           name="email"
         />
-        <LabeledInput
+        <Labeledinput
           label="Password"
           type="password"
           placeholder="*************"

@@ -1,4 +1,4 @@
-const Checkbox = (props) => {
+const CheckBox = (props) => {
   const { label, name } = props;
 
   return (
@@ -16,4 +16,4 @@ const Checkbox = (props) => {
   );
 };
 
-export default Checkbox;
+export default CheckBox;

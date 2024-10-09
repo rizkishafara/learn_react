@@ -1,17 +1,17 @@
 import Button from "../Elements/Button";
-import Checkbox from "../Elements/Checkbox";
-import LabeledInput from "../Elements/LabeledInput";
+import Checkbox from "../Elements/CheckBox";
+import Labeledinput from "../Elements/LabeledInput";
 
 const FormSignIn = () => {
   return (
     <form action="">
-      <LabeledInput
+      <Labeledinput
         label="Email address"
         type="email"
         placeholder="hello@example.com"
         name="email"
       />
-      <LabeledInput
+      <Labeledinput
         label="Password"
         type="password"
         placeholder="*************"
