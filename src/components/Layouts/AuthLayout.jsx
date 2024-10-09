@@ -21,5 +21,4 @@ const Authlayout = (props) => {
   );
 };
 
-export default Authlayout;</div>
-</div>
+export default Authlayout;
