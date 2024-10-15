@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
 import ForgotPassPage from "./pages/ForgotPass";
@@ -10,10 +14,10 @@ const App = () => {
   //   </div>
   // );
   const myRouter = createBrowserRouter([
-    // {
-    //   path: "/",
-    //   element: <Navigate to="/login" />,
-    // },
+    {
+      path: "/",
+      element: <Navigate to="/login" />,
+    },
     {
       path: "/login",
       element: (
