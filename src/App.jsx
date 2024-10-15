@@ -10,11 +10,10 @@ const App = () => {
   //   </div>
   // );
   const myRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Navigate to="/login" />,
-    },
-
+    // {
+    //   path: "/",
+    //   element: <Navigate to="/login" />,
+    // },
     {
       path: "/login",
       element: (
