@@ -17,6 +17,7 @@ const FormSignIn = () => {
         placeholder="*************"
         name="password"
       />
+      <a href="/forgot-password" className="block text-right text-gray-03 mt-2 text-sm font-bold">Forgot Password?</a>
       <Checkbox label="Keep me signed in" name="status" />
       <Button variant="bg-primary w-full text-white">Login</Button>
     </form>

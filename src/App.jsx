@@ -1,6 +1,7 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
+import ForgotPassPage from "./pages/ForgotPass";
 
 const App = () => {
   // return (
@@ -9,6 +10,11 @@ const App = () => {
   //   </div>
   // );
   const myRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Navigate to="/login" />,
+    },
+
     {
       path: "/login",
       element: (
@@ -22,6 +28,14 @@ const App = () => {
       element: (
         <div className="flex justify-center min-h-screen items-center">
           <SignUpPage />
+        </div>
+      ),
+    },
+    {
+      path: "/forgot-password",
+      element: (
+        <div className="flex justify-center min-h-screen items-center">
+          <ForgotPassPage />
         </div>
       ),
     },
