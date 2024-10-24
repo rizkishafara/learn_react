@@ -4,7 +4,7 @@ import Header from "../Fragments/Header";
 const MainLayout = (props) => {
   const { children } = props;
   return (
-    <div className="flex bg-special-mainBg w-screen min-h-screen max-w-full">
+    <div className="flex bg-gray-100 w-screen min-h-screen max-w-full">
       {/* navbar start*/}
       <Navbar />
       {/* navbar end*/}
