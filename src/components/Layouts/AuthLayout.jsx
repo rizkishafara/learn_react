@@ -1,9 +1,7 @@
-// import React from "react";
 import Button from "../Elements/Button";
 import Logo from "../Elements/Logo";
 
 const Authlayout = (props) => {
-  // eslint-disable-next-line react/prop-types
   const { children, title } = props;
 
   return (

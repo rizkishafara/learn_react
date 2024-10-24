@@ -1,11 +1,12 @@
 import {
   createBrowserRouter,
-  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
 import ForgotPassPage from "./pages/ForgotPass";
+import DashboardPage from "./pages/Dashboard";
+import BalancePage from "./pages/Balance";
 
 const App = () => {
   // return (
@@ -16,7 +17,7 @@ const App = () => {
   const myRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Navigate to="/login" />,
+      element: <DashboardPage />,
     },
     {
       path: "/login",
@@ -40,6 +41,12 @@ const App = () => {
         <div className="flex justify-center min-h-screen items-center">
           <ForgotPassPage />
         </div>
+      ),
+    },
+    {
+      path: "/balance",
+      element: (
+        <BalancePage />
       ),
     },
   ]);
