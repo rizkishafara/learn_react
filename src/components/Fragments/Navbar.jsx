@@ -67,7 +67,7 @@ const Navbar = () => {
           <div className="mx-auto sm:mx-0">
             <Icon.Logout />
           </div>
-          <div className="ms-3 text-special-bg3 hidden sm:block">Logout</div>
+          <div className="ms-3 hidden sm:block">Logout</div>
         </div>
         <div className="border-b my-10 border-b-special-bg"></div>
         <div className="flex justify-between">
