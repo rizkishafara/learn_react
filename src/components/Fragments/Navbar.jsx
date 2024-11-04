@@ -30,7 +30,7 @@ const Navbar = () => {
     },
     {
       id: "expense",
-      link: "/expense",
+      link: "/expenses",
       icon: <Icon.Expenses />,
       label: "Expense",
     },
@@ -48,43 +48,47 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="bg-defaultBlack text-special-bg2 sm:w-72 w-36 min-h-screen px-7 py-12 flex flex-col justify-between">
-      <div>
-        <div className="flex justify-center mb-10">
-          <Logo variant="text-white text-2xl" />
-        </div>
-        {menus.map((menu) => (
-          <Link key={menu.id} to={menu.link}>
-            <div className="flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md">
-              <div className="mx-auto sm:mx-0">{menu.icon}</div>
-              <div className="ms-3 hidden sm:block">{menu.label}</div>
-            </div>
+    <div className="bg-defaultBlack">
+      <nav className="stickt top-0 text-special-bg2 sm:w-72 w-36 min-h-screen px-7 py-12 flex flex-col justify-between">
+        <div>
+          <Link to="/" className="flex justify-center mb-10">
+            <Logo variant="text-white text-2xl" />
           </Link>
-        ))}
-      </div>
-      <div className="sticky bottom-12">
-        <div className="flex bg-special-bg3 px-4 py-3 rounded-md">
-          <div className="mx-auto sm:mx-0">
-            <Icon.Logout />
-          </div>
-          <div className="ms-3 hidden sm:block">Logout</div>
+          {menus.map((menu) => (
+            <Link key={menu.id} to={menu.link}>
+              <div
+                className={`flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md ${location.pathname==menu.link ? 'bg-primary text-white' : 'text-special-bg2'}`}
+              >
+                <div className="mx-auto sm:mx-0">{menu.icon}</div>
+                <div className="ms-3 hidden sm:block">{menu.label}</div>
+              </div>
+            </Link>
+          ))}
         </div>
-        <div className="border-b my-10 border-b-special-bg"></div>
-        <div className="flex justify-between">
-          <div className="mx-auto sm:mx-0">
-            <img src="images/profile.png" />
+        <div className="sticky bottom-12">
+          <div className="flex bg-special-bg3 px-4 py-3 rounded-md">
+            <div className="mx-auto sm:mx-0">
+              <Icon.Logout />
+            </div>
+            <div className="ms-3 hidden sm:block">Logout</div>
           </div>
-          <div className="hidden sm:block">
-            Username
-            <br />
-            View Profile
-          </div>
-          <div className="hidden sm:block self-center justify-self-end">
-            <Icon.KebabMenu />
+          <div className="border-b my-10 border-b-special-bg"></div>
+          <div className="flex justify-between">
+            <div className="mx-auto sm:mx-0">
+              <img src="images/profile.png" />
+            </div>
+            <div className="hidden sm:block">
+              Username
+              <br />
+              View Profile
+            </div>
+            <div className="hidden sm:block self-center justify-self-end">
+              <Icon.KebabMenu />
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

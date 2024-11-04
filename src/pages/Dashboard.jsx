@@ -5,30 +5,22 @@ const DashboardPage = () => {
   return (
     <MainLayout type="dashboard">
       {/* top content start*/}
-      <div className="mb-4 sm:flex sm:gap-6">
-        <div className="mb-4 sm:w-1/3">
-          <Card title="Title1" desc="Deskripsi1" />
+      <div className="md:grid md:grid-cols-3 md:gap-x-6">
+        <Card title="Total Balance" />
+        <Card
+          title="Goals"
+          desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        />
+        <Card title="Upcoming Bill" />
+        <div className="md:col-span-1">
+          <Card
+            title="Recent Transaction"
+            desc="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+          />
         </div>
-        <div className="mb-4 sm:w-1/3">
-          <Card title="Title2" desc="Deskripsi2" />
-        </div>
-        <div className="mb-4 sm:w-1/3">
-          <Card title="Title3" desc="Deskripsi3" />
-        </div>
-      </div>
-      {/* top content end*/}
-      {/* bottom content start*/}
-      <div className="sm:flex sm:gap-6">
-        <div className="mb-4 sm:w-1/3">
-          <Card title="Title4" desc="Deskripsi4" />
-        </div>
-        <div className="sm:w-2/3">
-          <div className="mb-4">
-            <Card title="Title5" desc="Deskripsi5" />
-          </div>
-          <div className="mb-4">
-            <Card title="Title6" desc="Deskripsi6" />
-          </div>
+        <div className="md:col-span-2 flex flex-col flex-1">
+          <Card title="Statistics" />
+          <Card title="Expenses Breakdown" />
         </div>
       </div>
       {/* bottom content end*/}

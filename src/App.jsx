@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignUp";
 import ForgotPassPage from "./pages/ForgotPass";
 import DashboardPage from "./pages/Dashboard";
 import BalancePage from "./pages/Balance";
+import ExpensesPage from "./pages/Expenses";
 
 const App = () => {
   // return (
@@ -47,6 +48,12 @@ const App = () => {
       path: "/balance",
       element: (
         <BalancePage />
+      ),
+    },
+    {
+      path: "/expenses",
+      element: (
+        <ExpensesPage />
       ),
     },
   ]);
