@@ -6,6 +6,7 @@ import expensesBreakdowns from "../data/expense";
 import { Icon } from "../components/Elements/Icon";
 import { useState } from "react";
 import CardBalance from "../components/Fragments/Dashboard/CardBalance";
+import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
 
 const DashboardPage = () => {
   const tabs = ["All", "Revenue", "Expense"];
@@ -122,7 +123,8 @@ const DashboardPage = () => {
             </div>
           }
         />
-        <Card variant="md:col-span-2" title="Statistics" />
+        {/* <Card variant="md:col-span-2" title="Statistics" /> */}
+        <CardStatistic />
         <Card
           variant="md:col-span-2"
           title="Expenses Breakdown"
