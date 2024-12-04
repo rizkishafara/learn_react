@@ -7,6 +7,7 @@ import { Icon } from "../components/Elements/Icon";
 import { useState } from "react";
 import CardBalance from "../components/Fragments/Dashboard/CardBalance";
 import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
+import CardGoal from "../components/Fragments/Dashboard/CardGoal";
 
 const DashboardPage = () => {
   const tabs = ["All", "Revenue", "Expense"];
@@ -96,7 +97,8 @@ const DashboardPage = () => {
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
         <CardBalance />
         {/* <Card title="Total Balance" /> */}
-        <Card title="Goals" />
+        <CardGoal />
+        {/* <Card title="Goals" /> */}
         <Card title="Upcoming Bill" desc={billCard} />
         <Card
           variant="md:col-span-1 md:row-span-2"
