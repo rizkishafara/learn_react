@@ -452,6 +452,26 @@ const ArrowRight = () => {
     </IconWrapper>
   );
 };
+const ArrowUpRight = () => {
+  return (
+    <IconWrapper>
+      <path
+        d="M4.6665 11.3337L11.3332 4.66699"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.6665 4.66699H11.3332V11.3337"
+        stroke="black"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </IconWrapper>
+  );
+};
 export const Icon = {
   Overview: OverviewIcon,
   Balance: BalanceIcon,
@@ -472,4 +492,5 @@ export const Icon = {
   ArrowDown: ArrowDown,
   ArrowUp: ArrowUp,
   ArrowRight: ArrowRight,
+  ArrowUpRight: ArrowUpRight,
 };
