@@ -3,6 +3,7 @@ const Input = (props) => {
     type,
     placeholder,
     name,
+    register,
     variant = "bg-gray-100 border border-gray-300",
   } = props;
 
@@ -13,6 +14,7 @@ const Input = (props) => {
       placeholder={placeholder}
       name={name}
       id={name}
+      {...register}
     />
   );
 };

@@ -1,8 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "../Elements/Icon";
 import Logo from "../Elements/Logo";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/themeContext";
+import { AuthContext } from "../../context/authContext";
+import axios from "axios";
 
 const Navbar = () => {
   const themes = [
@@ -14,6 +16,8 @@ const Navbar = () => {
   ];
 
   const { setTheme } = useContext(ThemeContext);
+  const { setIsLoggedIn, setName, name } = useContext(AuthContext);
+  const navigate = useNavigate();
   const menus = [
     {
       id: "overview",
@@ -58,6 +62,24 @@ const Navbar = () => {
       label: "Setting",
     },
   ];
+  const refreshToken = localStorage.getItem("refreshToken");
+  console.log(refreshToken);
+  const Logout = async () => {
+    try {
+      await axios.get("https://jwt-auth-eight-neon.vercel.app/logout", {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      });
+      setIsLoggedIn(false);
+      setName("");
+      localStorage.removeItem("refreshToken");
+
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="bg-defaultBlack">
       <nav className="stickt top-0 text-special-bg2 sm:w-72 w-36 min-h-screen px-7 py-12 flex flex-col justify-between">
@@ -92,7 +114,7 @@ const Navbar = () => {
         </div>
         <div className="sticky bottom-12">
           <NavLink
-            to="/login"
+            onClick={Logout}
             className="flex bg-special-bg3 px-4 py-3 rounded-md"
           >
             <div className="mx-auto sm:mx-0 text-primary">
@@ -106,7 +128,7 @@ const Navbar = () => {
               <img src="images/profile.png" />
             </div>
             <div className="hidden sm:block">
-              Username
+              {name}
               <br />
               View Profile
             </div>
