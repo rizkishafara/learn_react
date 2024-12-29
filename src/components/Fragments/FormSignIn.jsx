@@ -8,11 +8,13 @@ import { jwtDecode } from "jwt-decode";
 import SnackBar from "../Elements/SnackBar";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
+import { NotifContext } from "../../context/notifContext";
 
 const FormSignIn = () => {
-  const [msg, setMsg] = useState("");
-  const [open, setOpen] = useState(false);
+  // const [msg, setMsg] = useState("");
+  // const [open, setOpen] = useState(false);
   const { setIsLoggedIn, setName } = useContext(AuthContext);
+  const { msg, setMsg, setOpen, setIsLoading } = useContext(NotifContext);
 
   const navigate = useNavigate();
 
@@ -23,6 +25,7 @@ const FormSignIn = () => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "https://jwt-auth-eight-neon.vercel.app/login",
@@ -31,6 +34,10 @@ const FormSignIn = () => {
           password: data.password,
         }
       );
+
+      setIsLoading(false);
+      setOpen(true);
+      setMsg({ severity: "success", desc: "Success" });
 
       const decodeToken = jwtDecode(response.data.refreshToken);
       // console.log(decodeToken);
@@ -44,6 +51,7 @@ const FormSignIn = () => {
       setOpen(true);
       setMsg({ severity: "success", desc: "Login Success" });
     } catch (error) {
+      setIsLoading(false);
       if (error.response) {
         setOpen(true);
         setMsg({ severity: "error", desc: error.response.data.msg });
@@ -109,7 +117,7 @@ const FormSignIn = () => {
         variant={
           !isValid
             ? "bg-gray-05 w-full text-white"
-            : "bg-primary w-full text-white"
+            : "bg-primary w-full text-white zoom-in"
         }
         disabled={!isValid ? "disabled" : ""}
         type="submit"

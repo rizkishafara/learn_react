@@ -2,9 +2,14 @@ import Navbar from "../Fragments/Navbar";
 import Header from "../Fragments/Header";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/themeContext";
+import { NotifContext } from "../../context/notifContext";
+import SimpleBackdrop from "../Elements/Backdrop";
+import CustomizedSnackbars from "../Elements/SnackBar";
 
 const MainLayout = (props) => {
   const { children } = props;
+  const { msg, setMsg, open, setOpen, isLoading, setIsLoading } =
+    useContext(NotifContext);
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -14,6 +19,17 @@ const MainLayout = (props) => {
       <Navbar />
       {/* navbar end*/}
       <div className="w-screen">
+        {isLoading && (
+          <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
+        )}
+        {msg && (
+          <CustomizedSnackbars
+            severity={msg.severity}
+            message={msg.message}
+            open={open}
+            setOpen={setOpen}
+          />
+        )}
         {/* header start*/}
         <Header />
         {/* header end*/}
