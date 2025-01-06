@@ -9,7 +9,7 @@ const CheckBox = (props) => {
         name={name}
         id={name}
       />
-      <label htmlFor={name} className="ps-3 text-sm text-slate-700">
+      <label htmlFor={name} className="ps-3 text-sm text-slate-700 dark:text-white">
         {label}
       </label>
     </div>

@@ -11,8 +11,22 @@ const Authlayout = (props) => {
   const { msg, setMsg, open, setOpen, isLoading, setIsLoading } =
     useContext(NotifContext);
 
+  const darkMode = () => {
+    const toggle = document.querySelector('.switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+      document.documentElement.setAttribute("class", "");
+      localStorage.setItem("theme", "");
+      toggle.checked = false;
+    } else {
+      document.documentElement.setAttribute("class", "dark");
+      localStorage.setItem("theme", "dark");
+      toggle.checked = true;
+    }
+  };
+
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-special-mainBg">
+    <div className="flex items-center justify-center w-screen h-screen bg-special-mainBg dark:bg-gray-900">
       {isLoading && (
         <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
       )}
@@ -39,7 +53,7 @@ const Authlayout = (props) => {
         {title !== "forgot password" ? (
           <>
             <div className="py-7 flex justify-center text-xs text-gray-03">
-              <span className="bg-white px-5"> or {title} with</span>
+              <span className="dark:text-white px-5"> or {title} with</span>
             </div>
             <Button variant="bg-gray-05 w-full text-gray-01 flex items-center justify-center space-x-2">
               <img
@@ -65,6 +79,15 @@ const Authlayout = (props) => {
             Back to Login
           </a>
         )}
+        {
+          /* dark mode toggle */
+          <div className="flex justify-center mt-5">
+            <label className="switch">
+              <input type="checkbox" onClick={darkMode} />
+              <span className="slider round"></span>
+            </label>
+          </div>
+        }
       </motion.div>
     </div>
   );

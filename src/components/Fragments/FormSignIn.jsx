@@ -3,7 +3,7 @@ import Checkbox from "../Elements/CheckBox";
 import Labeledinput from "../Elements/LabeledInput";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { jwtDecode } from "jwt-decode";
 import SnackBar from "../Elements/SnackBar";
 import { useNavigate } from "react-router-dom";
@@ -106,7 +106,7 @@ const FormSignIn = () => {
       </div>
       <a
         href="/forgot-password"
-        className="block text-right text-gray-03 mt-2 text-sm font-bold"
+        className="block text-right text-gray-03 dark:text-white mt-2 text-sm font-bold"
       >
         Forgot Password?
       </a>
