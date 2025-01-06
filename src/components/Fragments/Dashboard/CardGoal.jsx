@@ -16,7 +16,9 @@ const CardGoal = () => {
   const { msg, setMsg, setOpen, setIsLoading } = useContext(NotifContext);
   const { setIsLoggedIn, setName } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isLoading, setLoading] = useState(true);
   const getData = async () => {
+    setLoading(true);
     try {
       const refreshToken = localStorage.getItem("refreshToken");
 
@@ -51,6 +53,8 @@ const CardGoal = () => {
           console.log(error.response);
         }
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,6 +64,7 @@ const CardGoal = () => {
   return (
     <Card
       title="Goals"
+      loading={isLoading}
       desc={
         <div className="p-2">
           <div className="flex justify-between">

@@ -1,5 +1,6 @@
+import CircularProgress from "@mui/material/CircularProgress";
 const Card = (props) => {
-  const { title = false, desc, variant } = props;
+  const { title = false, desc, variant, loading } = props;
   return (
     <div className={`flex flex-col flex-1 mb-6 ${variant}`}>
       {title && (
@@ -13,9 +14,17 @@ const Card = (props) => {
           )}
         </>
       )}
-      <div className="bg-white rounded-lg px-6 py-5 shadow-xl flex-1">
-        {desc}
-      </div>
+      {loading ? (
+        <div className="bg-white rounded-lg px-6 py-5 shadow-xl flex-1">
+          <div className="flex justify-center items-center h-32">
+            <CircularProgress color="inherit"/>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-white rounded-lg px-6 py-5 shadow-xl flex-1">
+          {desc}
+        </div>
+      )}
     </div>
   );
 };

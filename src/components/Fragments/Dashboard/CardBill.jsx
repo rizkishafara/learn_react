@@ -11,8 +11,10 @@ const CardBill = () => {
   const { setIsLoggedIn, setName } = useContext(AuthContext);
   const navigate = useNavigate();
   const [bill, setBill] = useState({ bills: [] });
+  const [isLoading, setLoading] = useState(true);
 
   const getData = async () => {
+    setLoading(true);
     try {
       const refreshToken = localStorage.getItem("refreshToken");
 
@@ -43,6 +45,8 @@ const CardBill = () => {
           console.log(error.response);
         }
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,6 +80,7 @@ const CardBill = () => {
           </div>
         );
       })}
+      loading={isLoading}
     ></Card>
   );
 };
